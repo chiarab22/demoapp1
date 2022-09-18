@@ -1,7 +1,7 @@
 FROM maven:3.6.3 AS maven
+RUN mvn package
 WORKDIR /usr/src/app
 COPY . /usr/src/app
-RUN mvn package
 FROM adoptopenjdk/openjdk11:alpine-jre
 ARG JAR_FILE=demoapp-0.0.1-SNAPSHOT.jar
 WORKDIR /opt/app
