@@ -1,8 +1,9 @@
-FROM openjdk:8-jdk-alpine
-VOLUME /tmp
-ARG JAVA_OPTS
-ENV JAVA_OPTS=$JAVA_OPTS
-COPY target/demoapp-0.0.1-SNAPSHOT.jar demoapp1.jar
-ENTRYPOINT exec java $JAVA_OPTS -jar demoapp1.jar
-# For Spring-Boot project, use the entrypoint below to reduce Tomcat startup time.
-#ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar demoapp1.jar
+FROM maven:3.6.3 AS maven
+RUN mvn package
+WORKDIR /usr/src/app
+COPY . /usr/src/app
+FROM adoptopenjdk/openjdk11:alpine-jre
+ARG JAR_FILE=demoapp-0.0.1-SNAPSHOT.jar
+WORKDIR /opt/app
+COPY --from=maven /usr/src/app/target/${JAR_FILE} /opt/app/
+ENTRYPOINT ["java","-jar","demoapp-0.0.1-SNAPSHOT.jar"]
