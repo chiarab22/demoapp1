@@ -25,9 +25,7 @@ public class ParController {
     }
 
     @RequestMapping("/numeroPar")
-    public @ResponseBody String numeroPares(@PathVariable (value = "x") int numero){
-        return service.par(numero);
-    }
+    public @ResponseBody String numeroPares(int numero){ return service.par(numero); }
 
     @PostMapping("/numeroPar")
     public String checkPersonInfo(@ModelAttribute @Valid UserData userData, BindingResult bindingResult, Model model) {
