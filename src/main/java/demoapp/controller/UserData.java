@@ -5,7 +5,7 @@ import javax.validation.constraints.Size;
 public class UserData {
     @Size(min=3, max=30)
     String nombre;
-    int año;
+    int x;
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -15,13 +15,11 @@ public class UserData {
         return nombre;
     }
 
-    public int getAño() {
-        return año;
+    public int getX() {
+        return x;
     }
 
-    public void setAño(int año) {
-        this.año = año;
+    public void setX(int x) {
+        this.x = x;
     }
-
-    
 }

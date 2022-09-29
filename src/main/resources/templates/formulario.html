@@ -1,7 +1,17 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<body>
-    <form th:action="@{/añoform}" th:object="${userData}" method="post">
-       
-    </form>
+<form th:action="@{/numeroPar}" th:object="${userData}" method="post">
+    <table>
+        <tr>
+            <td>Numero:</td>
+            <td><input type="number" th:field="*{x}" /></td>
+            <td th:if="${#fields.hasErrors('x')}" th:errors="*{x}"></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Enviar</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -8,9 +8,11 @@ public class SaludoService {
         return "Hola " + nombre;
     }
 
-    public String año(int año) {
-        return "Tienes " + (2022 - año) + " años";
+    public String par(int x){
+        if(x%2==0){
+            return String.format("El número %d es par", x);
+        }
+        return String.format("El número %d es impar", x);
     }
-        
     
 }

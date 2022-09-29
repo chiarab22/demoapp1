@@ -25,14 +25,6 @@ public class SaludoControllerForm {
     @GetMapping("/añoform")
     public String añoForm(UserData userData){ return "formulario";}
 
-    @PostMapping("/añoform")
-    public String checkPersonalInfo(@ModelAttribute @Valid UserData userData, BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            return "formRegistro";
-        }
-        model.addAttribute("mensaje", service.año(userData.getAño()));
-        return "añonacimiento";
-    }
 
     @PostMapping("/saludoform")
     public String checkPersonInfo(@ModelAttribute @Valid UserData userData, BindingResult bindingResult, Model model) {
