@@ -3,10 +3,11 @@ package demoapp.controller;
 import demoapp.service.SaludoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 public class ParController {
@@ -23,4 +24,17 @@ public class ParController {
       return service.par(numero);
     }
 
+    @RequestMapping("/numeroPar")
+    public @ResponseBody String numeroPares(@PathVariable (value = "x") int numero){
+        return service.par(numero);
+    }
+
+    @PostMapping("/numeroPar")
+    public String checkPersonInfo(@ModelAttribute @Valid UserData userData, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "formulario";
+        }
+        model.addAttribute("mensaje", service.par(userData.getX()));
+        return "numero";
+    }
 }
