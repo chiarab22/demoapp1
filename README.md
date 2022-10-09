@@ -32,3 +32,4 @@ Una vez lanzada la aplicación puedes abrir un navegador y probar los distintos 
 - [http://localhost:8080/saludoform](http://localhost:8080/saludoform)
 - [http://localhost:8080/numeroPar/50](http://localhost:8080/numeroPar/50)
 - [http://localhost:8080/numeroPar/595](http://localhost:8080/numeroPar/595)
+- [http://localhost:8080/numeroPar](http://localhost:8080/numeroPar)
