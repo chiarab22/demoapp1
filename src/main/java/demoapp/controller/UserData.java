@@ -3,9 +3,9 @@ package demoapp.controller;
 import javax.validation.constraints.Size;
 
 public class UserData {
-    @Size(min=3, max=30)
+    @Size(min=1, max=30)
     String nombre;
-    int x;
+    int numero;
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -15,11 +15,7 @@ public class UserData {
         return nombre;
     }
 
-    public int getX() {
-        return x;
-    }
+    public int getNumero() {return numero;}
 
-    public void setX(int x) {
-        this.x = x;
-    }
+    public void setNumero(int x) {this.numero = numero;}
 }

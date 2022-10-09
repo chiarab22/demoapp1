@@ -22,10 +22,6 @@ public class SaludoControllerForm {
     }
 
 
-    @GetMapping("/añoform")
-    public String añoForm(UserData userData){ return "formulario";}
-
-
     @PostMapping("/saludoform")
     public String checkPersonInfo(@ModelAttribute @Valid UserData userData, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
