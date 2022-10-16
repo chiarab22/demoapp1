@@ -1,3 +1,5 @@
+Realizada por Chiara Boccaletti
+
 # Aplicación inicial Spring Boot
 
 Aplicación básica usando Spring Boot y plantillas Thymeleaf.
